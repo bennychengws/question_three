@@ -60,13 +60,12 @@ passport.use(new LocalStrategy(
     function(username, password, done) {
         try {
             const user = users.find(i => i.username === username)
-            console.log(user)
             if (user === undefined) { 
-                console.log("Invalid User")
+                // console.log("Invalid User")
                 return done(null, false, {message: "Invalid User"}); 
             }
             if (user.password != password) { 
-                console.log("Incorrect Password")
+                // console.log("Incorrect Password")
                 return done(null, false, {message: "Incorrect Password"}); 
             }
             return done(null, user);
@@ -112,8 +111,6 @@ app.route("/login")
 app.get("/welcome", (req, res) => {
     Jwt.verify(req.cookies.auth, "asfasfasfasfasfasfasf", async function (err, decoded) {
         if (!err && decoded) {
-            console.log("authenticated by the authentication check function")
-            console.log(req.cookies.auth)
             res.render("welcome", {accessToken: req.cookies.auth})
           } else {
             res.redirect("/login")
