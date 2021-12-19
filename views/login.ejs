@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/login" method="POST">
+        <div>
+            <label for="username">Username: </label>
+            <input id="username" name="username" type="text" autocomplete="username" value="admin" required />
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input id="password" name="password" type="password" autocomplete="password" value="Admin&8181" required />
+        </div>
+        <div>
+            <button type="submit">Log In</button>
+        </div>
+    </form>
+    <% if(messages.error) { %>
+        <%= messages.error %>
+    <% } %>     
+</body>
+</html>
